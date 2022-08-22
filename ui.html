@@ -1,0 +1,14 @@
+<p>Start number: <input id="value" value="0" /></p>
+<button id="start">Start</button>
+<button id="cancel">Cancel</button>
+<script>
+  document.getElementById('start').onclick = () => {
+    const textbox = document.getElementById('value');
+    const count = parseInt(textbox.value, 10);
+    parent.postMessage({ pluginMessage: { type: 'start-number', count } }, '*');
+  };
+
+  document.getElementById('cancel').onclick = () => {
+    parent.postMessage({ pluginMessage: { type: 'cancel' } }, '*');
+  };
+</script>
